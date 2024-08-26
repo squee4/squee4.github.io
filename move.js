@@ -12,6 +12,9 @@ var Keys = {
 	right: false
 };
 
+
+// Render obj on execution
+
 // Set player position on load
 window.addEventListener('load', () => {
 	mono.style.position = 'absolute';
@@ -23,7 +26,7 @@ window.addEventListener('load', () => {
 // W -> 87 / A -> 65 / S -> 83 / D -> 68
 // Up -> 38 / Left -> 37 / Down -> 40 / Right -> 39
 
-/* window.addEventListener('keyup', (e) => {
+window.addEventListener('keyup', (e) => {
 	var kc = e.key;
 	e.preventDefault();
 
@@ -35,7 +38,7 @@ window.addEventListener('load', () => {
 		Keys.right = false;
 	else if (kc == 'ArrowDown' || kc === 83)
 		Keys.down = false;
-}); */
+});
 
 // Working eventListener but its handling is very simple
 window.addEventListener('keydown', (e) => {
@@ -47,34 +50,35 @@ window.addEventListener('keydown', (e) => {
 
 	if (kc == 'ArrowUp')
 		Keys.up = true;  // only one key per event
-	if (kc == 'ArrowDown')
+	else if (kc == 'ArrowDown')
 		Keys.down = true;    // so check exclusively
-
-	if (kc == 'ArrowLeft')
+	else if (kc == 'ArrowLeft')
 		Keys.left = true;
-	if (kc == 'ArrowRight')
+	else if (kc == 'ArrowRight')
 		Keys.right = true;
 
-	switch (kc) {
-		case 'ArrowLeft':
-			//while (Keys.left)
-			if (x - movement >= 0)
-				mono.style.left = (x - movement) + 'vw';
-			break;
-		case 'ArrowRight':
-			//while (Keys.right)
-			if (x + movement <= 100 - 3)
-				mono.style.left = (x + movement) + 'vw';
-			break;
-		case 'ArrowUp':
-			//while (Keys.up)
-			if (y - movement >= 0)
-				mono.style.top = (y - movement) + 'vh';
-			break;
-		case 'ArrowDown':
-			//while (Keys.down)
-			if (y + movement <= 100 - 10)
-				mono.style.top = (y + movement) + 'vh';
-			break;
+
+	// separate if and add condition
+	if (Keys.left)
+	{
+		if (x - movement >= 0)
+			mono.style.left = (x - movement) + 'vw';
+	}
+	else if (Keys.right)
+	{
+		if (x + movement <= 100 - 3)
+			mono.style.left = (x + movement) + 'vw';
+	}
+		
+
+	if (Keys.up)
+	{
+		if (y - movement >= 0)
+			mono.style.top = (y - movement) + 'vh';
+	}
+	else if (Keys.down)
+	{
+		if (y + movement <= 100 - 10)
+			mono.style.top = (y + movement) + 'vh';
 	}
 });
