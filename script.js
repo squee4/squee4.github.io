@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSectionIndex = 0;
 
     // Initialize player position
-    player.style.top = '50px';
-    player.style.left = '50px';
+    player.style.top = '50%';
+    player.style.left = '50%';
 
     // Define section positions
     const sectionPositions = [
-        { top: '50%', left: '10%', width: '20%', height: '20%' },
-        { top: '50%', left: '50%', width: '20%', height: '20%' },
-        { top: '50%', left: '80%', width: '20%', height: '20%' },
+        { top: '0%', left: '0%', width: '100%', height: '15%' },
+        { top: '15%', left: '0%', width: '25%', height: '85%' },
+        { top: '15%', left: '25%', width: '75%', height: '85%' },
     ];
 
     // Track key presses
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function movePlayer(deltaTime) {
-        const step = 200 * deltaTime; // pixels per second
-        let top = parseInt(player.style.top) || 0;
-        let left = parseInt(player.style.left) || 0;
+        const step = 300 * deltaTime; // pixels per second
+        let top = parseFloat(player.style.top) / 100 * window.innerHeight || 0;
+        let left = parseFloat(player.style.left) / 100 * window.innerWidth || 0;
 
         if (keys['w']) {
             top = Math.max(0, top - step);
@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentSectionIndex++;
             }
         }
-    }
+        player.style.top = `${(top / window.innerHeight) * 100}%`;
+        player.style.left = `${(left / window.innerWidth) * 100}%`;
+}
 
     let lastTime = 0;
 
