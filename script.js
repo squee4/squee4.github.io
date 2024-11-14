@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 top >= sectionTop &&
                 top < sectionTop + sectionHeight
             ) {
-                currentSection.style.display = 'block';
+                currentSection.style.display = 'flex';
                 currentSectionIndex++;
             }
         }
