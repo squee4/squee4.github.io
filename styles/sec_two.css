@@ -1,17 +1,27 @@
 ul {
-	border: 1px solid #000;
-	height: 100%;
-	width: 100%;
-	list-style: none;
-	display: flex;
-	flex-flow: column;
-	justify-content: baseline;
-	align-items: start;
-	padding: 1rem 1.5rem;
+    border: 1px solid #000;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 ul li {
-	font-size: 1.5rem;
-	margin: .5rem 0;
-	font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+}
+
+ul li:hover {
+    color: #007bff;
+    transform: scale(1.1);
 }
