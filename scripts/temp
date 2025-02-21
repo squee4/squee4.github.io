@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Track key presses
-    function trackKeyPresses() {
+    function trackKeyPresses(keys) {
         document.addEventListener('keydown', (event) => {
             keys[event.key.toLowerCase()] = true;
+            console.log(keys);
         });
 
         document.addEventListener('keyup', (event) => {
